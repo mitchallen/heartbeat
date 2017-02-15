@@ -71,4 +71,21 @@ describe('module factory smoke test', () => {
             done(err); 
         });
     });
+
+    it('respond method should return object', done => {
+        _factory.create({})
+        .then(function(obj) {
+            return obj.respond();
+        })
+        .then(function(result) {
+            should.exist(result);
+            result.name.should.eql("heartbeat");
+            result.status.should.eql("OK");
+            done();
+        })
+        .catch( function(err) { 
+            console.error(err);
+            done(err); 
+        });
+    });
 });

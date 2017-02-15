@@ -41,10 +41,24 @@ module.exports.create = (spec) => {
 
         spec = spec || {};
 
+        var _name = spec.type || "heartbeat",
+            _version = spec.version || "",
+            _status = spec.status || "OK",
+            _message = spec.message || "The service is running";
+
+
         // reject("reason");
 
         // private 
         let _package = "@mitchallen/heartbeat";
+
+        var _data = {
+            name: _name,
+            version: _version,
+            status: _status,
+            message: _message,
+            timestamp: new Date(Date.now())
+        };
 
         resolve({
             // public
@@ -75,6 +89,12 @@ module.exports.create = (spec) => {
             health: function() {
                 return new Promise((resolve,reject) => {
                     resolve("OK");
+                });
+            },
+
+            respond: function() {
+                return new Promise((resolve,reject) => {
+                    resolve(_data);
                 });
             }
         });
