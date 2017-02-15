@@ -18,6 +18,7 @@ Module
 * [heartbeat](#module_heartbeat)
     * [.package()](#module_heartbeat+package)
     * [.health()](#module_heartbeat+health)
+    * [.respond()](#module_heartbeat+respond)
 
 <a name="module_heartbeat+package"></a>
 
@@ -41,6 +42,27 @@ Health check
                 })
                 .then(function(result) {
                     console.log("HEALTH: ", result);
+                })
+                .catch( function(err) { 
+                    console.error(err); 
+                });
+```
+<a name="module_heartbeat+respond"></a>
+
+### heartbeat.respond()
+Respond
+
+**Kind**: instance method of <code>[heartbeat](#module_heartbeat)</code>  
+**Example** *(Usage Example)*  
+```js
+                var factory = require("@mitchallen/heartbeat");
+             
+                factory.create({})
+                .then(function(obj) {
+                    return obj.respond();
+                })
+                .then(function(result) {
+                    console.log("RESPONSE: ", result);
                 })
                 .catch( function(err) { 
                     console.error(err); 

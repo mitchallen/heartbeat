@@ -46,7 +46,6 @@ module.exports.create = (spec) => {
             _status = spec.status || "OK",
             _message = spec.message || "The service is running";
 
-
         // reject("reason");
 
         // private 

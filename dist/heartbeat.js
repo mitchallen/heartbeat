@@ -95,6 +95,24 @@ module.exports.create = function (spec) {
                 });
             },
 
+            /** Respond
+              * @function
+              * @instance
+              * @memberof module:heartbeat
+              * @example <caption>Usage Example</caption>
+                var factory = require("@mitchallen/heartbeat");
+             
+                factory.create({})
+                .then(function(obj) {
+                    return obj.respond();
+                })
+                .then(function(result) {
+                    console.log("RESPONSE: ", result);
+                })
+                .catch( function(err) { 
+                    console.error(err); 
+                });
+            */
             respond: function respond() {
                 return new Promise(function (resolve, reject) {
                     resolve(_data);
